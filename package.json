@@ -4,7 +4,7 @@
   "description": "Software of Development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node src/index.js"
   },
   "keywords": [
     "NodeJS",
@@ -12,7 +12,8 @@
     "MongoDB",
     "Mongoose",
     "Bcrypt",
-    "JWT"
+    "JWT",
+    "Babel"
   ],
   "author": "Daniel Alejo Alvarez",
   "license": "MIT",
@@ -25,5 +26,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.5",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.14.9",
+    "nodemon": "^2.0.12"
   }
 }
