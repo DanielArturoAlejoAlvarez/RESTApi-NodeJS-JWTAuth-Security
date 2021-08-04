@@ -1,0 +1,19 @@
+{
+  "name": "restapi-jwt-mongodb",
+  "version": "1.0.0",
+  "description": "Software of Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "Bcrypt",
+    "JWT"
+  ],
+  "author": "Daniel Alejo Alvarez",
+  "license": "MIT"
+}
