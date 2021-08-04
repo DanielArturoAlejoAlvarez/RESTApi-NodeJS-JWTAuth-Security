@@ -4,7 +4,8 @@
   "description": "Software of Development",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node"
+    "start": "nodemon src/index.js --exec babel-node",
+    "build": "babel src --out-dir build"
   },
   "keywords": [
     "NodeJS",
