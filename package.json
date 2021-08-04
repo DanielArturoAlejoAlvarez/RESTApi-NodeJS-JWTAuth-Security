@@ -35,5 +35,9 @@
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.14.9",
     "nodemon": "^2.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielArturoAlejoAlvarez/RESTApi-NodeJS-JWTAuth-Security.git"
   }
 }
