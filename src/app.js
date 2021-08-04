@@ -2,6 +2,10 @@ import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
 
+import productRouter from './routes/product.routes'
+import userRouter from './routes/user.routes'
+import authRouter from './routes/auth.routes'
+
 const app = express()
 
 app.set('pkg',pkg)
@@ -22,5 +26,10 @@ app.get('/', (req,res)=>{
         msg: 'WELCOME TO MY REST API'
     })
 })
+
+app.use('/api/products', productRouter)
+app.use('/api/users', userRouter)
+app.use('/auth', authRouter)
+
 
 export default app
