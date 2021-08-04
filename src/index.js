@@ -1,8 +1,5 @@
-import express from 'express'
+import config from './config/config'
+import app from './app'
 
-const app = express()
-
-const port = process.env.PORT || 3000
-
-app.listen(port)
-console.log('Server running in port: ',port)
+app.listen(config.port)
+console.log('Server running in port: ',config.port)
