@@ -1,7 +1,8 @@
 import Product from '../models/Product'
 
 export const getProducts = async (req,res)=>{
-
+    const products = await Product.find()
+    return res.json(products)
 }
 
 export const getProduct = async (req,res)=>{
