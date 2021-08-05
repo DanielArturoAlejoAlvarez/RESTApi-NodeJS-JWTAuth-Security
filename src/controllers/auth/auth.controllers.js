@@ -14,9 +14,10 @@ export const register = async (req, res) => {
     email,
     password: User.encryptPassword(password),
     avatar,
-    roles,
     status,
   });
+
+  
 
   const user = await newUser.save();
 
