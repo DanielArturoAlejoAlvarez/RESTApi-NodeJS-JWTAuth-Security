@@ -2,10 +2,6 @@ import Product from '../models/Product'
 
 export const getProducts = async (req,res)=>{
 
-    
-    return res.json({
-        
-    })
 }
 
 export const getProduct = async (req,res)=>{
@@ -13,7 +9,11 @@ export const getProduct = async (req,res)=>{
 }
 
 export const saveProduct = async (req,res)=>{
+    const {name,price,stock,category,imgURL,status} = req.body
+    const newProduct = new Product({name,price,stock,category,imgURL,status})
+    const product = await newProduct.save()
 
+    return res.status(201).json(product)
 }
 
 export const updateProduct = async (req,res)=>{
