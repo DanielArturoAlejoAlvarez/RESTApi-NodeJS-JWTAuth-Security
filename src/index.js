@@ -1,3 +1,4 @@
+import './database'
 import config from './config/config'
 import app from './app'
 
