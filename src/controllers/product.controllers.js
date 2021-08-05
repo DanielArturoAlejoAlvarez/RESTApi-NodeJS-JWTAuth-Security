@@ -25,7 +25,12 @@ export const saveProduct = async (req,res)=>{
 }
 
 export const updateProduct = async (req,res)=>{
-    
+    const { idProduct } = req.params
+    const updProduct = await Product.findByIdAndUpdate(idProduct, req.body, {new: true})
+    return res.status(200).json({
+        msg: 'Product updated successfully!',
+        product: updProduct
+    })
 }
 
 export const deleteProduct = async (req,res)=>{
