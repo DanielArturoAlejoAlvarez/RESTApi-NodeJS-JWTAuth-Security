@@ -1,3 +1,5 @@
+import Product from '../models/Product'
+
 export const getProducts = async (req,res)=>{
 
     
