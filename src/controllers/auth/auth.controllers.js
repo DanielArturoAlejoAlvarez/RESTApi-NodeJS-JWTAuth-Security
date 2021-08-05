@@ -3,7 +3,30 @@ import jwt from "jsonwebtoken";
 import User from "../../models/User";
 import Role from "../../models/Role";
 
-export const login = async (req, res) => {};
+export const login = async (req, res) => {
+
+    const user = await User.findOne({
+        email: req.body.email
+    }).populate("roles")
+
+    if (!user) {
+        return res.status(400).json({msg: 'User not found!'})
+    }
+
+    const matchPassword = await User.comparePassword(req.body.password, user.password)
+    if (!matchPassword) {
+        return res.status(401).json({token: null, msg: 'Password is invalid!'})
+    }
+
+    const token = jwt.sign({id: user._id}, config.secret_key, {
+        expiresIn: 60 * 60
+    })
+
+    return res.status(200).json({
+        msg: "User is loggedin!",
+        token
+      });
+};
 
 export const register = async (req, res) => {
   try {
