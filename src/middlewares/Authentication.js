@@ -1,25 +1,29 @@
-import config from '../config/config'
-import jwt from 'jsonwebtoken'
-import User from '../models/User'
+import config from "../config/config";
+import jwt from "jsonwebtoken";
+import User from "../models/User";
 
-export const verifyToken = async (req,res,next)=>{
-    const authHeader = req.headers["authorization"]
-    const token = authHeader.split(" ")[1]
+export const verifyToken = async (req, res, next) => {
+  try {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader.split(" ")[1];
 
-    console.log(token)
+    console.log(token);
 
     if (!token) {
-        return res.status(403).json({msg: 'Token not provided!'})
+      return res.status(403).json({ msg: "Token not provided!" });
     }
 
-    const decoded = jwt.verify(token, config.secret_key)
-    console.log(decoded)
+    const decoded = jwt.verify(token, config.secret_key);
+    console.log(decoded);
 
-    req.idUser = decoded.id
+    req.idUser = decoded.id;
 
-    const user = await User.findById(req.idUser, {password: 0})
-    if(!user) return res.status(404).json({msg: 'User not found!'})
-    console.log(user)
+    const user = await User.findById(req.idUser, { password: 0 });
+    if (!user) return res.status(404).json({ msg: "User not found!" });
+    console.log(user);
 
-    next()
-}
+    next();
+  } catch (error) {
+    return res.status(401).json({ msg: "Unauthorized!" });
+  }
+};
