@@ -1,5 +1,6 @@
 import {Router} from 'express'
-import { verifyToken, isSuperAdmin, isAdmin } from '../middlewares/Authentication'
+import { verifyToken } from '../middlewares/Authentication'
+import { isSuperAdmin, isAdmin } from '../middlewares/PermissionsLevel'
 
 const router = Router()
 

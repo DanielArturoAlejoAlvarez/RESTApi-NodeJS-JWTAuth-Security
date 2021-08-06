@@ -12,7 +12,21 @@ export const getUser = async (req,res)=>{
 }
 
 export const saveUser = async (req,res)=>{
-
+    const { displayName, username, email, password, avatar, status } = req.body;
+    const newUser = new User({
+      displayName,
+      username,
+      email,
+      password,
+      avatar,
+      status,
+    });
+    const user = await newUser.save();
+  
+    return res.status(201).json({
+      msg: "User saved successfully!",
+      user,
+    });
 }
 
 export const updateUser = async (req,res)=>{
