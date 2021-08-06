@@ -1,10 +1,13 @@
 "use strict";
 
-var _express = _interopRequireDefault(require("express"));
+require("./database");
+
+var _config = _interopRequireDefault(require("./config/config"));
+
+var _app = _interopRequireDefault(require("./app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var app = (0, _express["default"])();
-var port = process.env.PORT || 3000;
-app.listen(port);
-console.log('Server running in port: ', port);
+_app["default"].listen(_config["default"].port);
+
+console.log('Server running in port: ', _config["default"].port);
