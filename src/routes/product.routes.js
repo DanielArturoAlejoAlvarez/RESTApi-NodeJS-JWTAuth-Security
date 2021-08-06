@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { verifyToken, isSuperAdmin } from '../middlewares/Authentication'
+import { verifyToken, isSuperAdmin, isAdmin } from '../middlewares/Authentication'
 
 const router = Router()
 
@@ -7,7 +7,7 @@ import { getProduct, getProducts, saveProduct, updateProduct, deleteProduct } fr
 
 router.get('/', getProducts)
 router.get('/:idProduct', getProduct)
-router.post('/',[verifyToken], saveProduct)
+router.post('/',[verifyToken,isAdmin,isSuperAdmin], saveProduct)
 router.put('/:idProduct',[verifyToken,isSuperAdmin], updateProduct)
 router.delete('/:idProduct',[verifyToken,isSuperAdmin], deleteProduct)
 
