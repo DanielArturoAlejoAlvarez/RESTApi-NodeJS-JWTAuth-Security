@@ -7,7 +7,6 @@ export const createRoles = async () => {
     const values = await Promise.all([
       new Role({ name: "SUPERADMIN" }).save(),
       new Role({ name: "ADMIN" }).save(),
-      new Role({ name: "EDITOR" }).save(),
       new Role({ name: "USER" }).save(),
     ]);
     console.log(values);
