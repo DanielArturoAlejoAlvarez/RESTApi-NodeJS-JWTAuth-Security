@@ -30,9 +30,15 @@ export const saveUser = async (req,res)=>{
 }
 
 export const updateUser = async (req,res)=>{
+  const { idUser } = req.params
 
+  const updUser = await User.findByIdAndUpdate(idUser, req.body, {
+    new: true
+  })
+
+  return res.status(201).json({
+    user: updUser,
+    msg: 'User updated successfully!'
+  })
 }
 
-export const deleteUser = async (req,res)=>{
-
-}
