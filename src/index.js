@@ -1,5 +1,5 @@
 import './database'
-import config from './config/config'
+import { keyENV as config } from './config/config'
 import app from './app'
 
 app.listen(config.port)

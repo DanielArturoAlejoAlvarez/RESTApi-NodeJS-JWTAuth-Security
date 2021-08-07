@@ -1,4 +1,4 @@
-import config from './config/config'
+import { keyENV as config } from './config/config'
 import mongoose from 'mongoose'
 
 mongoose.connect(config.mongodb, {

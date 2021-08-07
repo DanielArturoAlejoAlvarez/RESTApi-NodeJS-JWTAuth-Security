@@ -1,4 +1,4 @@
-import config from "../../config/config";
+import { keyENV as config } from "../../config/config";
 import jwt from "jsonwebtoken";
 import User from "../../models/User";
 import Role from "../../models/Role";
