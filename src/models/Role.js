@@ -1,11 +1,14 @@
-import { Schema,model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
-export const ROLES = ['SUPERADMIN','ADMIN','USER']
+export const ROLES = ["SUPERADMIN", "ADMIN", "USER"];
 
-const roleSchema = new Schema({
-    name: String
-}, {
-    versionKey: false
-})
+const roleSchema = new Schema(
+  {
+    name: String,
+  },
+  {
+    versionKey: false,
+  }
+);
 
-export default model('Role', roleSchema)
+export default model("Role", roleSchema);

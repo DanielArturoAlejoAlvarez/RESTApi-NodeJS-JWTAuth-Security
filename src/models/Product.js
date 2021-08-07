@@ -1,27 +1,28 @@
-import { Schema,model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
-const productSchema = new Schema({
+const productSchema = new Schema(
+  {
     name: String,
     price: Number,
     stock: Number,
     category: {
-        type: String,
-        enum: ['COMPUTER','TABLET','SMARTPHONE','ACCESSORIES'],
-        default: 'COMPUTER'
+      type: String,
+      enum: ["COMPUTER", "TABLET", "SMARTPHONE", "ACCESSORIES"],
+      default: "COMPUTER",
     },
     imgURL: {
-        type: String,
-        maxLength: 512
+      type: String,
+      maxLength: 512,
     },
     status: {
-        type: Boolean,
-        default: true
-    }
-},
-    {
-        timestamps: true,
-        versionKey: false
-    }
-)
+      type: Boolean,
+      default: true,
+    },
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
 
-export default model('Product',productSchema)
+export default model("Product", productSchema);
